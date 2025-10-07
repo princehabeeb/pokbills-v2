@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1818226898",
+    "project_id": "topupmate-a8dff",
+    "storage_bucket": "topupmate-a8dff.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1818226898:android:c2d3dc40d977af8952bd0b",
+        "android_client_info": {
+          "package_name": "com.primebiller.primebiller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBduDuh8Kb98PErFMwNs-UiDEsQzumOhgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

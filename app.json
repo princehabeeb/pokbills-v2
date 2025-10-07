@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "PokBills",
+    "slug": "pokbills",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mypokbillsappng.mypokbillsappng"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mypokbillsappng.mypokbillsappng",
+      "versionCode": 2
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "expo.modules": [
+      {
+        "name": "expo-document-picker",
+        "version": "11.2.2"
+      }
+    ],
+    "extra": {
+      "oneSignalAppId": "d0aef24b-c16e-4dfc-a695-3dc9955c8457"
+    },
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "production"
+        }
+      ]
+    ]
+  }
+}
