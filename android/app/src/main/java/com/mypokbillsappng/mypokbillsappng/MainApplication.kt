@@ -1,4 +1,4 @@
-package com.alfadatasub.app
+package com.mypokbillsappng.mypokbillsappng
 
 import android.app.Application
 import android.content.res.Configuration

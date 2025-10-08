@@ -1,4 +1,4 @@
-package com.alfadatasub.app
+package com.mypokbillsappng.mypokbillsappng
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

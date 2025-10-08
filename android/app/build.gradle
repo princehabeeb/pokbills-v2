@@ -86,13 +86,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.alfadatasub.app'
+    namespace 'com.mypokbillsappng.mypokbillsappng'
     defaultConfig {
-        applicationId 'com.alfadatasub.app'
+        applicationId 'com.mypokbillsappng.mypokbillsappng'
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion 35
-        versionCode 3
-        versionName "3.0.0"
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 2
+        versionName "2.0.0"
     }
     signingConfigs {
         debug {
