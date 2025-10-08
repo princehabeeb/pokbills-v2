@@ -4,8 +4,8 @@ import { Appearance } from 'react-native';
 export const Theme = () => {
   return {
     palette: {
-      primary: '#0018ff',
-      secondary: '#000d8b',
+      primary: '#bda644',
+      secondary: '#887833',
       white: '#fff',
       black: '#424242',
       red: '#c5221f',
@@ -40,6 +40,6 @@ export const Theme = () => {
     },
     font: {},
     os: Platform.OS,
-    appName: 'Alfadatasub',
+    appName: 'PokBills',
   };
 };

@@ -2,7 +2,7 @@ import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
 
 import * as RootNavigation from './../../utilities/RootNavigation';
 
-export const BaseUrl = 'https://alfadatasub.com.ng/apiserver/';
+export const BaseUrl = 'https://pokbills.com/apiserver/';
 // export const BaseUrl = 'https://sample.topupmate.com/apiserver/';
 
 export const sendRequest = async ({
