@@ -12,6 +12,7 @@ import {
   Image,
   ActivityIndicator,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Theme } from '../../constants/Theme';
 import { LoginUser } from '../../store/apis/auth';
 import { ALERT_TYPE, Dialog } from 'react-native-alert-notification';
@@ -40,6 +41,7 @@ const INITIAL_ERRORS = {};
 const LoginV2 = ({ navigation }) => {
   const dispatch = useDispatch();
   const avatar = useGetAvatar();
+  const insets = useSafeAreaInsets();
 
   // State management
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
@@ -346,15 +348,15 @@ const LoginV2 = ({ navigation }) => {
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <ScrollView
-          contentContainerStyle={styles.scrollContainer}
-          showsVerticalScrollIndicator={false}
-        >
-          <View style={styles.logoContainer}>
-            <Image source={avatar} style={styles.logo} resizeMode="contain" />
-          </View>
+      <ScrollView
+        contentContainerStyle={[styles.scrollContainer, { paddingBottom: Math.max(insets.bottom, 20) }]}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.logoContainer}>
+          <Image source={avatar} style={styles.logo} resizeMode="contain" />
+        </View>
 
-          <View style={styles.formContainer}>
+        <View style={styles.formContainer}>
             <Text style={styles.title}>
               Welcome Back, {savedUser?.firstname || 'User'}
             </Text>
@@ -460,7 +462,7 @@ const LoginV2 = ({ navigation }) => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScrollView
-        contentContainerStyle={styles.scrollContainer}
+        contentContainerStyle={[styles.scrollContainer, { paddingBottom: Math.max(insets.bottom, 20) }]}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.logoContainer}>

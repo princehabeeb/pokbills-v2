@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Mybutton from '../../components/global/Mybutton';
 import { Theme } from '../../constants/Theme';
@@ -22,6 +23,7 @@ const WelcomePage = () => {
 
   const theme = Theme();
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
 
   const getLoginInfo = async () => {
     const useBio = await GetData('use_biometric');
@@ -64,7 +66,7 @@ const WelcomePage = () => {
           colors={['transparent', 'rgba(0,0,0,0.9)']}
           style={styles.bottomContainer}
         >
-          <View style={styles.innerBottomContainer}>
+          <View style={[styles.innerBottomContainer, { paddingBottom: Math.max(insets.bottom, 10) }]}>
           <Title
               text={'Welcome ' + theme.appName}
               header
@@ -95,7 +97,8 @@ const styles = StyleSheet.create({
   innerBottomContainer: {
     flex: 1,
     justifyContent: 'flex-end',
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
   },
   image: {
     marginTop: 7,

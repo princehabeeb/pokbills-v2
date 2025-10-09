@@ -36,7 +36,27 @@
       }
     ],
     "extra": {
-      "oneSignalAppId": "d0aef24b-c16e-4dfc-a695-3dc9955c8457"
+      "oneSignalAppId": "d0aef24b-c16e-4dfc-a695-3dc9955c8457",
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "OneSignalNotificationServiceExtension",
+                  "bundleIdentifier": "com.mypokbillsappng.mypokbillsappng.OneSignalNotificationServiceExtension",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.mypokbillsappng.mypokbillsappng.onesignal"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "1a9ebc57-8f27-4792-94f8-a07b9a5c351e"
+      }
     },
     "plugins": [
       [

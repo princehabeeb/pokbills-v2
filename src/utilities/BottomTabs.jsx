@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Theme } from '../constants/Theme';
 
@@ -14,6 +15,8 @@ const BottomTab = createBottomTabNavigator();
 const theme = Theme();
 
 export function BottomTabs() {
+  const insets = useSafeAreaInsets();
+  
   return (
     <BottomTab.Navigator
       screenOptions={({ route, navigation }) => ({
@@ -22,8 +25,8 @@ export function BottomTabs() {
         tabBarStyle: {
           borderTopEndRadius: 10,
           borderTopLeftRadius: 10,
-          paddingBottom: 10,
-          height: 60,
+          paddingBottom: insets.bottom > 0 ? insets.bottom : 10,
+          height: 60 + (insets.bottom > 0 ? insets.bottom : 0),
         },
         tabBarIcon: ({ color, size }) => {
           let iconName;

@@ -1,5 +1,6 @@
 import { TouchableOpacity, StyleSheet, View } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import MyIcon from '../global/MyIcon';
 import { SlidesList } from '../../constants/SliderList';
@@ -9,6 +10,7 @@ import MyButton from '../global/Mybutton';
 
 const theme = Theme();
 const NextButton = ({ percentage, scrollRef }) => {
+  const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const [isLast, setLast] = useState(false);
 
@@ -34,7 +36,7 @@ const NextButton = ({ percentage, scrollRef }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, 20) }]}>
       {isLast === false ? (
         <TouchableOpacity style={styles.button} onPress={handleNextPress}>
           <MyIcon
@@ -58,7 +60,6 @@ export default NextButton;
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 20,
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',

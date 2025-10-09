@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Title from '../../components/global/Title';
 import MyButton from '../../components/global/Mybutton';
 import TransparentButton from '../../components/global/TransParentButton';
@@ -8,6 +9,7 @@ import { StoreData } from '../../constants/storage';
 
 const theme = Theme();
 export default function AllowNotification({ navigation }) {
+  const insets = useSafeAreaInsets();
   async function handleAllowNotify() {
     await StoreData('allow_notification', true);
     navigation.navigate('select avatar page', {
@@ -15,7 +17,7 @@ export default function AllowNotification({ navigation }) {
     });
   }
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: Math.max(insets.bottom + 20, 40) }]}>
       <View style={{ paddingHorizontal: 10 }}>
         <Title text="Receive Notification" header />
         <Title text="Receive regular updates" />
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.palette.white,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 40,
+    paddingTop: 40,
   },
   image: {
     height: theme.window.windowWidth < 800 ? '60%' : '80%',

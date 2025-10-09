@@ -1,6 +1,7 @@
 import { Image, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import MyButton from '../../components/global/Mybutton';
 import Title from '../../components/global/Title';
@@ -11,8 +12,9 @@ const theme = Theme();
 export default function WelcomeSuccessPage() {
   const { user } = useSelector((state) => state.globalState);
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, 20) }]}>
       <Image source={require('../../assets/3d/2.png')} style={styles.image} />
       <Image
         source={require('../../assets/icon2.png')}
