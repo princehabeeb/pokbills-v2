@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { BackHandler } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Title from '../../components/global/Title';
 import { AvatarList } from '../../constants/AvaterList';
@@ -23,6 +24,7 @@ export default function SelectAvaterPage({ navigation, route }) {
   const { isNew } = route.params;
   const [bgColor, setBgColor] = useState(theme.palette.white);
   const [active, setActive] = useState(null);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     (async () => {
@@ -77,7 +79,7 @@ export default function SelectAvaterPage({ navigation, route }) {
           )}
         />
       </View>
-      <View>
+      <View style={{ paddingBottom: Math.max(insets.bottom, 10) }}>
         <MyButton text="Continue" onPress={handleBackPress} />
       </View>
     </View>
