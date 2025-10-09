@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: theme.palette.white,
-    paddingTop: StatusBar.currentHeight,
   },
   // Alternative edge-to-edge styles:
   edgeToEdge: {

@@ -53,7 +53,7 @@ const WelcomePage = () => {
   const img = require('../../assets/background.jpg');
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
       <ImageBackground source={img} style={styles.bgImage}>
         <View style={styles.topContainer}>
@@ -84,7 +84,6 @@ const WelcomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
   },
   topContainer: {
     flex: 1.2,

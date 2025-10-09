@@ -1,6 +1,7 @@
 import { StatusBar, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Theme } from '../../constants/Theme';
 import Row from './Row';
@@ -11,8 +12,10 @@ import Divider from './Divider';
 const theme = Theme();
 export default function SecondaryHeader({ text, hideBack }) {
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
+  
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: insets.top + 10 }]}>
       <Row style={styles.row}>
         {!hideBack && (
           <TouchableOpacity
@@ -46,9 +49,7 @@ export default function SecondaryHeader({ text, hideBack }) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginVertical: 10,
-    // marginTop: 2,
-    marginTop: StatusBar.currentHeight,
+    marginBottom: 10,
   },
   icon: {
     backgroundColor: theme.palette.gray,

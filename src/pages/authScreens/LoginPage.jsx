@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet, View, StatusBar } from 'react-native';
 import React, { useState } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Theme } from '../../constants/Theme';
 import Login from '../../components/auth/Login';
@@ -10,8 +11,10 @@ const theme = Theme();
 const LoginPage = ({ route }) => {
   const [loading, setLoading] = useState(false);
   const { islogin } = route.params;
+  const insets = useSafeAreaInsets();
+  
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.bottomContainer}>
@@ -30,7 +33,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: theme.palette.white,
-    paddingTop: StatusBar.currentHeight,
   },
 
   bottomContainer: {

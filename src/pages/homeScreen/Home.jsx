@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useCallback, useEffect, useState } from 'react';
 import Constants from 'expo-constants';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Theme } from '../../constants/Theme';
 import InfoCard from '../../components/homePage/InfoCard';
@@ -55,6 +56,7 @@ const HomeScreen = () => {
   const [notification, setNotification] = useState({});
   const [showNotification, setShowNotification] = useState(false);
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
 
   const onRefresh = async () => {
     // Set refreshing to true
@@ -180,7 +182,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: StatusBar.currentHeight }}>
+    <View style={{ flex: 1, paddingTop: insets.top }}>
       <Modal visible={showNotification} transparent animationType="fade">
         <View style={styles.modalContainer}>
           <View style={styles.alertBox}>

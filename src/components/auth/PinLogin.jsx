@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Title from '../global/Title';
 import OtpInput from '../global/OtpInput';
@@ -37,6 +38,7 @@ export default function PinLogin({
   const avater = useGetAvatar();
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const insets = useSafeAreaInsets();
 
   const handleCodeChange = (newCode) => {
     setError('');
@@ -93,7 +95,7 @@ export default function PinLogin({
   return (
     <View>
       <LoadingPage show={loading} />
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={[styles.container, { marginTop: insets.top + 10 }]}>
         <Image source={avater} style={styles.image} />
         <Title text={`Hello, ${user?.firstname}`} header />
         <Title
@@ -142,7 +144,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginTop: StatusBar.currentHeight + 10,
     minHeight: theme.window.windowHeight - 80,
   },
   image: {
